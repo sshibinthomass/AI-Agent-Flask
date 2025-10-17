@@ -1,0 +1,27 @@
+--Deployment Checklist (Run these commands in PowerShell)--
+
+cd D:\Projects-->Folder you want to clone the repo 
+
+git clone https://github.com/sshibinthomass/Munich-sushi-Chatbot.git--> Cloning the repo
+
+cd Munich-sushi-Chatbot-->Go to project File
+
+
+
+--Feel free to go ahead with Conda venv or normal python venv--
+
+pip install uv-->Install UV if not already done
+
+uv venv-->Create Virtual Environment (uv init--> is already done so you can skip it)
+
+.venv\Scripts\activate-->Activate VEnv
+
+uv add -r requirements.txt-->Install the requirements
+
+
+
+--Important--
+Please copy the .env file and paste it inside Munich-sushi-Chatbot folder before starting the application
+
+
+streamlit run app.py-->Run streamlit application

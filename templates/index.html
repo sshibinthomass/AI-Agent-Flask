@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <!-- Sidebar -->
+            <div class="col-md-3 sidebar">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4><i class="fas fa-robot"></i> {{ page_title }}</h4>
+                        <button class="btn btn-outline-light btn-sm" id="themeToggle" title="Toggle Dark/Light Mode">
+                            <i class="fas fa-moon" id="themeIcon"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="sidebar-content">
+                    <!-- LLM Selection -->
+                    <div class="form-group mb-3">
+                        <label for="llmSelect" class="form-label">Select LLM</label>
+                        <select class="form-select" id="llmSelect">
+                            {% for llm in llm_options %}
+                            <option value="{{ llm }}">{{ llm }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Model Selection (Dynamic) -->
+                    <div class="form-group mb-3" id="modelSelection">
+                        <label for="modelSelect" class="form-label">Select Model</label>
+                        <select class="form-select" id="modelSelect">
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+
+                    <!-- Use Case Selection -->
+                    <div class="form-group mb-3">
+                        <label for="usecaseSelect" class="form-label">Select Use Case</label>
+                        <select class="form-select" id="usecaseSelect">
+                            {% for usecase in usecase_options %}
+                            <option value="{{ usecase }}">{{ usecase }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <!-- Control Buttons -->
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-danger" id="clearHistoryBtn">
+                            <i class="fas fa-trash"></i> Clear History
+                        </button>
+                        <button class="btn btn-outline-info" id="exportHistoryBtn">
+                            <i class="fas fa-download"></i> Export Chat
+                        </button>
+                    </div>
+
+                    <!-- Connection Status -->
+                    <div class="mt-3">
+                        <div class="connection-status" id="connectionStatus">
+                            <i class="fas fa-circle text-danger"></i> Disconnected
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Chat Area -->
+            <div class="col-md-9 main-content">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <h5><i class="fas fa-comments"></i> Chat Interface</h5>
+                        <div class="chat-info">
+                            <span id="currentLLM">No LLM selected</span>
+                            <span id="currentModel">No model selected</span>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="welcome-message">
+                            <div class="message assistant-message">
+                                <div class="message-content">
+                                    <i class="fas fa-robot"></i>
+                                    <p>Welcome! Please select your LLM, model, and use case from the sidebar, then start chatting!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-input-container">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="messageInput" placeholder="Type your message here..." disabled>
+                            <button class="btn btn-primary" id="sendBtn" disabled>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> AI is thinking...
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

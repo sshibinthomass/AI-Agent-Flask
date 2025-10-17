@@ -1,0 +1,179 @@
+[
+  {
+    "title": "Sasou",
+    "position": {
+      "lat": 48.13697,
+      "lng": 11.5748
+    },
+    "distance_from_current_location": "65.29277618006775 meters",
+    "address": "Marienplatz 28, 80331 Munich",
+    "categories": ["Restaurant", "Catering & Food Services"],
+    "businessHours": {
+      "formattedHours": ["Mon - Sat: 11:00 - 21:00"],
+      "nextStatusChange": "Closes at 21:00",
+      "currentStatus": "OPEN"
+    },
+    "foodTypes": [
+      "Japanese - Sushi",
+      "Asian",
+      "Japanese",
+      "Southeast Asian",
+      "German",
+      "Fast Food",
+      "Soup"
+    ],
+    "contactInfo": {
+      "phoneNumber": "+49 89 263701",
+      "email": "sshibinthomass@gmail.com",
+      "website": "https://www.sasou.de/",
+      "place_id": "ChIJbdajK_V1nkcRyHVfk8h7Lfk"
+    },
+    "priceSummary": {
+      "priceRangeLevel": "3 out of 5",
+      "free": false
+    },
+    "menu": {
+      "items": [
+        { "name": "Yakitori Skewers", "price": 20.92 },
+        { "name": "Rainbow Roll", "price": 16.78 },
+        { "name": "Vietnamese Lemongrass Chicken", "price": 10.39 },
+        { "name": "Yakitori Skewers", "price": 24.49 },
+        { "name": "Miso Soup", "price": 17.88 },
+        { "name": "Tempura Shrimp", "price": 18.94 },
+        { "name": "Nigiri Salmon", "price": 8.71 },
+        { "name": "Rainbow Roll", "price": 10.88 },
+        { "name": "Inarizushi", "price": 21.82 },
+        { "name": "California Roll", "price": 7.07 }
+      ]
+    }
+  },
+  {
+    "title": "Galeria Restaurant",
+    "position": {
+      "lat": 48.13711,
+      "lng": 11.57407
+    },
+    "distance_from_current_location": "200 meters",
+    "duration_from_current_location": "1 minute",
+    "address": "Kaufingerstraße 1, 80331 Munich",
+    "categories": ["Restaurant", "Tea Room"],
+    "businessHours": {
+      "formattedHours": ["Mon - Sat: 10:00 - 19:00"],
+      "nextStatusChange": "Closes at 19:00",
+      "currentStatus": "OPEN"
+    },
+    "foodTypes": ["Japanese - Sushi", "European", "German"],
+    "contactInfo": {
+      "phoneNumber": "+49 89 23185757",
+      "email": "sshibinthomass@gmail.com",
+      "website": "https://www.galeria-restaurant.de/",
+      "place_id": "ChIJk5s4JvV1nkcRUMlD7Z27lgM"
+    },
+    "priceSummary": {
+      "priceRangeLevel": "1 out of 5",
+      "free": false
+    },
+    "menu": {
+      "items": [
+        { "name": "Tempura Shrimp", "price": 10.23 },
+        { "name": "California Roll", "price": 16.26 },
+        { "name": "Ayam Bakar", "price": 14.16 },
+        { "name": "California Roll", "price": 23.7 },
+        { "name": "Kappamaki", "price": 20.0 },
+        { "name": "Nigiri Salmon", "price": 15.43 },
+        { "name": "Shrimp Tempura Roll", "price": 22.81 },
+        { "name": "Char Siu Pork", "price": 19.24 },
+        { "name": "Tempura Shrimp", "price": 12.97 },
+        { "name": "Korean Bulgogi", "price": 6.83 }
+      ]
+    }
+  },
+  {
+    "title": "Shaokao Asian Grill&Wine",
+    "position": {
+      "lat": 48.13723,
+      "lng": 11.57303
+    },
+    "distance_from_current_location": "200 meters",
+    "duration_from_current_location": "7 minutes",
+    "address": "Fürstenfelder Straße 9, 80331 Munich",
+    "categories": ["Restaurant"],
+    "businessHours": {
+      "formattedHours": [
+        "Mon - Fri: 11:00 - 15:00",
+        "Mon - Fri: 17:00 - 22:00",
+        "Sat: 11:00 - 22:30"
+      ],
+      "nextStatusChange": "Opens at 17:00",
+      "currentStatus": "CLOSED"
+    },
+    "foodTypes": [
+      "Japanese - Sushi",
+      "Asian",
+      "Chinese",
+      "Japanese",
+      "European",
+      "International",
+      "Fusion",
+      "Grill"
+    ],
+    "contactInfo": {
+      "phoneNumber": "+49 491 722947032",
+      "email": "sshibinthomass@gmail.com",
+      "website": "https://skkbbq-allyoucaneat.de/",
+      "place_id": "ChIJ-Tw2cNR1nkcRAa1BRVmONY0"
+    },
+    "priceSummary": {
+      "free": false
+    },
+    "menu": {
+      "items": [
+        { "name": "Rainbow Roll", "price": 18.83 },
+        { "name": "Kappamaki", "price": 17.15 },
+        { "name": "Ikan Bakar", "price": 24.77 },
+        { "name": "Rainbow Roll", "price": 21.09 },
+        { "name": "Dragon Roll", "price": 11.44 },
+        { "name": "Philadelphia Roll", "price": 15.14 },
+        { "name": "Shrimp Tempura Roll", "price": 9.25 },
+        { "name": "Vietnamese Lemongrass Chicken", "price": 6.43 },
+        { "name": "Korean Bulgogi", "price": 6.17 },
+        { "name": "Miso Soup", "price": 17.29 }
+      ]
+    }
+  },
+  {
+    "title": "Secret Garden",
+    "position": {
+      "lat": 48.1357,
+      "lng": 11.57755
+    },
+    "distance_from_current_location": "300 meters",
+    "duration_from_current_location": "10 minutes",
+    "address": "Heiliggeiststraße 2A, 80331 Munich",
+    "categories": ["Restaurant"],
+    "foodTypes": ["Japanese - Sushi", "Asian", "Vietnamese", "Vegan"],
+    "contactInfo": {
+      "phoneNumber": "+49 89 45665628",
+      "email": "sshibinthomass@gmail.com",
+      "website": "https://www.secretgarden-munchen.de/",
+      "place_id": "ChIJtfhzszV1nkcRBeh7QXFaiho"
+    },
+    "priceSummary": {
+      "free": false
+    },
+    "menu": {
+      "items": [
+        { "name": "Spicy Tuna Roll", "price": 23.18 },
+        { "name": "Tempura Shrimp", "price": 5.8 },
+        { "name": "Philadelphia Roll", "price": 12.89 },
+        { "name": "Dragon Roll", "price": 15.87 },
+        { "name": "California Roll", "price": 15.18 },
+        { "name": "Gunkan Maki", "price": 23.98 },
+        { "name": "Shrimp Tempura Roll", "price": 22.24 },
+        { "name": "Spicy Tuna Roll", "price": 23.27 },
+        { "name": "Shrimp Tempura Roll", "price": 15.04 },
+        { "name": "Nigiri Salmon", "price": 16.34 }
+      ]
+    }
+  }
+]

@@ -1,0 +1,17 @@
+*.pyc
+**/__pycache__/
+
+
+
+venv/
+Documentation.ipynb
+.env
+quick_test.py
+new_test.py
+src/langgraphagenticai/tools/credentials.json
+src/langgraphagenticai/tools/token.json
+src/langgraphagenticai/tools/token.pickle
+test.txt
+chroma_openai/
+reports/
+mcp_tool.py
