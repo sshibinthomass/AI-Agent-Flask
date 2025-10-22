@@ -49,7 +49,7 @@ class ChatApp {
         
         this.socket.on('message_response', (data) => {
             this.hideTypingIndicator();
-            this.addMessage('assistant', data.assistant_reply);
+            this.addMessage('assistant', data.assistant_reply, data);
             this.enableInput();
         });
         
@@ -248,7 +248,7 @@ class ChatApp {
         });
     }
     
-    addMessage(role, content) {
+    addMessage(role, content, data = null) {
         const chatMessages = document.getElementById('chatMessages');
         
         // Remove welcome message if it exists
@@ -264,7 +264,16 @@ class ChatApp {
         contentDiv.className = 'message-content';
         
         if (role === 'assistant') {
-            contentDiv.innerHTML = `<i class="fas fa-robot"></i><p>${this.formatMessage(content)}</p>`;
+            let responseTimeInfo = '';
+            if (data && data.response_time_seconds) {
+                const responseTime = parseFloat(data.response_time_seconds).toFixed(2);
+                responseTimeInfo = `<div class="response-time-info">
+                    <small class="text-muted">
+                        <i class="fas fa-clock"></i> Response time: ${responseTime}s
+                    </small>
+                </div>`;
+            }
+            contentDiv.innerHTML = `<i class="fas fa-robot"></i><p>${this.formatMessage(content)}</p>${responseTimeInfo}`;
         } else {
             contentDiv.innerHTML = `<i class="fas fa-user"></i><p>${this.formatMessage(content)}</p>`;
         }

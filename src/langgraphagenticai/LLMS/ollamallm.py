@@ -1,4 +1,3 @@
-import os
 from langchain_ollama import ChatOllama
 from langchain_community.chat_message_histories import ChatMessageHistory
 import dotenv

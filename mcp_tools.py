@@ -1,13 +1,13 @@
 from mcp.server.fastmcp import FastMCP
 from src.langgraphagenticai.tools.google_map_review import get_reviews_for_restaurant
-from src.langgraphagenticai.tools.weather_info import get_weather_for_restaurant
+from src.langgraphagenticai.tools.mcp_weather import get_weather_for_restaurant
 from src.langgraphagenticai.tools.google_map_review import get_place_details_by_id
 import json
-import requests
 from typing import List, Dict, Optional
 
 
-mcp=FastMCP("Get restaurant, parking, weather, reviews", port=8000)
+mcp = FastMCP("Get restaurant, parking, weather, reviews", port=8000)
+
 
 @mcp.tool()
 def get_reviews(restaurant_name: str) -> dict:
@@ -26,6 +26,7 @@ def get_reviews(restaurant_name: str) -> dict:
     except Exception as e:
         return {"error": str(e)}
 
+
 @mcp.tool()
 def get_place_details(place_id: str) -> dict:
     """
@@ -40,6 +41,7 @@ def get_place_details(place_id: str) -> dict:
     except Exception as e:
         return {"error": str(e)}
 
+
 @mcp.tool()
 def search_nearby_restaurants(lat: float, lng: float, radius: int = 1000) -> dict:
     """
@@ -53,9 +55,11 @@ def search_nearby_restaurants(lat: float, lng: float, radius: int = 1000) -> dic
     """
     try:
         from src.langgraphagenticai.tools.google_map_review import search_nearby_places
+
         return search_nearby_places(lat, lng, radius, "restaurant")
     except Exception as e:
         return {"error": str(e)}
+
 
 @mcp.tool()
 def get_weather(restaurant_name: str) -> dict:
@@ -71,6 +75,7 @@ def get_weather(restaurant_name: str) -> dict:
     except Exception as e:
         return {"error": str(e)}
 
+
 @mcp.tool()
 def get_restaurant_data(restaurant_name: str) -> Optional[Dict]:
     """
@@ -85,6 +90,7 @@ def get_restaurant_data(restaurant_name: str) -> Optional[Dict]:
     matches = [r for r in data if r.get("title") == restaurant_name]
     return matches[0] if matches else None
 
+
 @mcp.tool()
 def get_all_restaurants() -> List[Dict]:
     """
@@ -95,6 +101,7 @@ def get_all_restaurants() -> List[Dict]:
     with open("data/sushi.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
+
 @mcp.tool()
 def get_restaurant_names() -> List[str]:
     """
@@ -102,9 +109,10 @@ def get_restaurant_names() -> List[str]:
     Returns:
         List[str]: The list of available sushi restaurant names.
     """
-    with open('data/sushi.json', 'r', encoding='utf-8') as f:
+    with open("data/sushi.json", "r", encoding="utf-8") as f:
         data = json.load(f)
-    return [item['title'] for item in data if 'title' in item]
+    return [item["title"] for item in data if "title" in item]
+
 
 @mcp.tool()
 def get_parking_data() -> dict:
@@ -116,5 +124,6 @@ def get_parking_data() -> dict:
     with open("data/parking.json", "r", encoding="utf-8") as f:
         return json.load(f)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     mcp.run(transport="streamable-http")

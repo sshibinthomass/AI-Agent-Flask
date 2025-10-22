@@ -1,11 +1,8 @@
 import json
 import sys
-import requests
 from pathlib import Path
 from typing import List, Dict
 from mcp.server.fastmcp import FastMCP
-import time
-from functools import wraps
 
 current_file = Path(__file__).resolve()
 project_root = current_file.parent.parent.parent.parent

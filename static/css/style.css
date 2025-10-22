@@ -457,6 +457,25 @@ body {
     color: var(--text-primary);
 }
 
+/* Response Time Info Styling */
+.response-time-info {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
+    text-align: right;
+}
+
+.response-time-info small {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.response-time-info i {
+    margin-right: 0.25rem;
+    color: var(--text-secondary);
+}
+
 /* Utility Classes */
 .fade-in {
     animation: fadeIn 0.5s ease;

@@ -4,7 +4,6 @@ Flask Application Startup Script
 Run this script to start the Flask chat application
 """
 
-import os
 import sys
 from flask_app import app, socketio
 

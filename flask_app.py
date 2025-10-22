@@ -5,6 +5,7 @@ import asyncio
 import threading
 import subprocess
 import sys
+import time
 from dotenv import load_dotenv
 import uuid
 import json
@@ -54,8 +55,9 @@ def start_mcp_servers():
         )
         parking_script = os.path.join(base_dir, "mcp_parking.py")
         restaurant_script = os.path.join(base_dir, "mcp_restaurant.py")
+        weather_script = os.path.join(base_dir, "mcp_weather.py")
 
-        # Start both as background processes
+        # Start all MCP servers as background processes
         subprocess.Popen(
             [sys.executable, parking_script],
             stdout=subprocess.DEVNULL,
@@ -66,7 +68,12 @@ def start_mcp_servers():
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
         )
-        print("MCP servers started successfully")
+        subprocess.Popen(
+            [sys.executable, weather_script],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        print("MCP servers started successfully (parking, restaurant, weather)")
     except Exception as e:
         print(f"Error starting MCP servers: {e}")
 
@@ -230,14 +237,26 @@ def handle_message(data):
         def run_graph():
             try:
                 print(f"Running graph for session: {session_id}")
-                print(f"Initial state: {initial_state}")
+                # print(f"Initial state: {initial_state}")
+
+                # Record start time for the entire graph execution
+                graph_start_time = datetime.now()
+                graph_start_timestamp = time.time()
+
                 result = asyncio.run(
                     graph.ainvoke(
                         initial_state,
                         config={"configurable": {"session_id": str(session_id)}},
                     )
                 )
-                print(f"Graph result: {result}")
+                # print(f"Graph result: {result}")
+
+                # Record end time for the entire graph execution
+                graph_end_time = datetime.now()
+                graph_end_timestamp = time.time()
+                total_response_time_seconds = (
+                    graph_end_timestamp - graph_start_timestamp
+                )
 
                 # Extract assistant reply properly
                 assistant_reply = ""
@@ -248,6 +267,11 @@ def handle_message(data):
                     assistant_reply = extract_content(result["messages"])
                 else:
                     assistant_reply = extract_content(result["messages"])
+
+                # Use the total graph execution time instead of individual node timing
+                response_time_seconds = total_response_time_seconds
+                start_time = graph_start_time
+                end_time = graph_end_time
 
                 # Update chat history (ensure content is string, not AIMessage object)
                 chat_sessions[session_id].append(
@@ -264,6 +288,9 @@ def handle_message(data):
                         "user_message": str(user_message),
                         "assistant_reply": str(assistant_reply),
                         "timestamp": datetime.now().isoformat(),
+                        "response_time_seconds": response_time_seconds,
+                        "start_time": start_time.isoformat() if start_time else None,
+                        "end_time": end_time.isoformat() if end_time else None,
                     },
                     room=session_id,
                 )

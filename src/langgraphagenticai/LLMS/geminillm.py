@@ -1,4 +1,3 @@
-import os
 # Replace this import with the actual Gemini LLM class you use
 # For example, if using langchain_google_genai:
 # from langchain_google_genai import ChatGoogleGenerativeAI
